@@ -1,0 +1,252 @@
+/* General Styles */
+body {
+    font-family: sans-serif;
+    text-align: center;
+    min-height: 100vh;
+    display: flex
+;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    height: 100vh;
+    color: rgb(255, 255, 255);
+    background: linear-gradient(135deg, #ff66b2, #d63384, #800080);
+    padding: 20px;
+    margin: 0px;
+}
+
+
+/* Soft Glowing Background */
+body::before, body::after {
+    content: "";
+    position: absolute;
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(255, 182, 193, 0.4), transparent);
+    filter: blur(60px);
+    z-index: -1;
+    animation: floating 6s infinite alternate ease-in-out;
+}
+
+body::before {
+    top: 15%;
+    left: 10%;
+}
+
+body::after {
+    bottom: 15%;
+    right: 10%;
+}
+
+/* Header */
+h1 {
+    font-size: 4.5rem;
+    margin-bottom: 20px;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-shadow: 0 0 25px rgba(255, 255, 255, 1);
+    letter-spacing: 3px;
+    animation: fadeIn 1s ease-in-out;
+}
+
+/* Form */
+form {
+    margin-bottom: 20px;
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    flex-wrap: wrap;
+}
+
+/* Input Field */
+input[type="text"] {
+    padding: 15px;
+    width: 100%;
+    max-width: 500px;
+    border: 2px solid rgba(255, 102, 178, 0.7);
+    border-radius: 30px;
+    font-size: 20px;
+    background: rgba(255, 240, 246, 0.85);
+    color: #d63384;
+    outline: none;
+    transition: all 0.4s ease-in-out;
+    text-align: center;
+    box-shadow: inset 0px 5px 10px rgba(255, 20, 147, 0.3);
+    backdrop-filter: blur(25px);
+}
+
+input[type="text"]:focus {
+    border-color: #ff1493;
+    background: rgba(255, 224, 239, 0.95);
+    transform: scale(1.06);
+    box-shadow: 0px 12px 30px rgba(255, 20, 147, 0.7);
+}
+
+/* Buttons */
+button {
+    padding: 16px 38px;
+    border: none;
+    border-radius: 30px;
+    background: linear-gradient(135deg, #ff66b2, #ff1493);
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+    transition: all 0.4s ease-in-out;
+    box-shadow: 0px 12px 45px rgba(255, 20, 147, 0.8);
+    font-weight: bold;
+    text-transform: uppercase;
+    position: relative;
+    overflow: hidden;
+}
+
+button:hover {
+    background: linear-gradient(135deg, #ff1493, #d63384);
+    transform: scale(1.1);
+    box-shadow: 0px 15px 50px rgba(255, 20, 147, 1);
+}
+
+button:active {
+    transform: scale(0.95);
+    box-shadow: 0px 7px 20px rgba(255, 20, 147, 0.7);
+}
+
+/* Task List */
+ul {
+    list-style: none;
+    padding: 30px;
+    width: 90%;
+    max-width: 700px;
+    margin: 0 auto;
+    background: rgba(255, 240, 246, 0.95);
+    border-radius: 30px;
+    box-shadow: 0px 20px 50px rgba(0, 0, 0, 0.3);
+    border: 5px solid rgba(255, 20, 147, 0.8);
+    backdrop-filter: blur(30px);
+    animation: slideIn 1s ease-in-out;
+}
+
+/* Task Item */
+li {
+    background: rgba(255, 204, 229, 0.95);
+    padding: 20px;
+    margin: 16px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 20px;
+    box-shadow: 0px 12px 30px rgba(0, 0, 0, 0.2);
+    transition: all 0.4s ease-in-out;
+    font-family: 'Poppins', sans-serif;
+    color: #d63384;
+    width: 100%;
+    text-align: center;
+    position: relative;
+}
+
+/* Floating Hover Effect */
+li:hover {
+    background: rgba(255, 179, 217, 0.95);
+    transform: translateY(-8px) scale(1.05);
+    border: 3px solid #ff1493;
+    box-shadow: 0px 18px 40px rgba(255, 20, 147, 0.8);
+}
+
+/* Completed Task */
+.completed {
+    text-decoration: line-through;
+    color: #ff66b2;
+    font-style: italic;
+    opacity: 0.7;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Custom Checkbox */
+li input[type="checkbox"] {
+    appearance: none;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    border: 3px solid #ff1493;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    position: relative;
+}
+
+li input[type="checkbox"]:checked {
+    background: #ff1493;
+    border: 3px solid #ff66b2;
+    box-shadow: 0px 0px 40px rgba(255, 20, 147, 1);
+}
+
+li input[type="checkbox"]:checked::after {
+    content: '✔';
+    font-size: 24px;
+    color: white;
+    position: absolute;
+    top: 3px;
+    left: 8px;
+    font-weight: bold;
+}
+
+/* Delete Button */
+button.delete {
+    background: linear-gradient(135deg, #ff4444, #ff0000);
+    padding: 14px 28px;
+    border-radius: 30px;
+    transition: all 0.4s ease-in-out;
+    font-weight: bold;
+    text-transform: uppercase;
+    box-shadow: 0px 14px 55px rgba(255, 0, 0, 0.8);
+}
+
+button.delete:hover {
+    background: linear-gradient(135deg, #ff0000, #cc0000);
+    transform: scale(1.1);
+    box-shadow: 0px 18px 60px rgba(255, 0, 0, 1);
+}
+
+/* Animations */
+@keyframes floating {
+    from {
+        transform: translateY(0);
+    }
+    to {
+        transform: translateY(18px);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-25px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(35px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
